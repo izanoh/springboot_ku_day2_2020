@@ -28,6 +28,13 @@ public class MenuController {
         return ResponseEntity.ok(menu);
     }
     
+    @GetMapping(value = "/getActiveMenu")
+    public ResponseEntity<GetMenuResponse> getActiveMenu() {
+        GetMenuResponse menu = 
+        		getMenuService.getActiveMenu();
+        return ResponseEntity.ok(menu);
+    }
+    
     @GetMapping(value = "/getMenu/{id}")
     public ResponseEntity<MenuResponse> getMenuById(@PathVariable("id") int id) {
         MenuResponse menu = getMenuService.getMenu(id);
@@ -38,5 +45,19 @@ public class MenuController {
     public ResponseEntity<SaveMenuResponse> saveMenu(@RequestBody SaveMenuRequest request) {
     	SaveMenuResponse resp = getMenuService.saveMenu(request);
         return ResponseEntity.ok(resp);
+    }
+    
+    @GetMapping(value = "/setActiveMenu/{id}")
+    public ResponseEntity<MenuResponse> setActiveMenu(
+    		@PathVariable("id") int id) {
+        MenuResponse menu = getMenuService.setActiveMenu(id);
+        return ResponseEntity.ok(menu);
+    }
+    
+    @GetMapping(value = "/setInActiveMenu/{id}")
+    public ResponseEntity<MenuResponse> setInActiveMenu(
+    		@PathVariable("id") int id) {
+        MenuResponse menu = getMenuService.setInActiveMenu(id);
+        return ResponseEntity.ok(menu);
     }
 }
