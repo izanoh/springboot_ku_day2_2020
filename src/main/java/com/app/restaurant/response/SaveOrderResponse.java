@@ -1,5 +1,9 @@
 package com.app.restaurant.response;
 
+import java.util.List;
+
+import com.app.restaurant.entity.OrderDetailEntity;
+
 public class SaveOrderResponse {
 	private Integer orderId;
 	private String customerName;
@@ -7,6 +11,7 @@ public class SaveOrderResponse {
 	private String email;
 	private String address;
 	private String orderStatus;
+	private List<OrderDetailEntity> detailEntities;
 	
 	public Integer getOrderId() {
 		return orderId;
@@ -54,6 +59,14 @@ public class SaveOrderResponse {
 
 	public void setOrderStatus(String orderStatus) {
 		this.orderStatus = orderStatus;
+	}
+
+	public List<OrderDetailEntity> getDetailEntities() {
+		return detailEntities;
+	}
+
+	public void setDetailEntities(List<OrderDetailEntity> detailEntities) {
+		this.detailEntities = detailEntities;
 	}
 	
 }

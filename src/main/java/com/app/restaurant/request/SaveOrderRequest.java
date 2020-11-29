@@ -1,11 +1,20 @@
 package com.app.restaurant.request;
 
+import java.util.List;
+
 public class SaveOrderRequest {
 	private String customerName;
 	private String mobile;
 	private String email;
 	private String address;
 	private String orderStatus;
+	private List<DetailRequest> details;
+	public List<DetailRequest> getDetails() {
+		return details;
+	}
+	public void setDetails(List<DetailRequest> details) {
+		this.details = details;
+	}
 	public String getCustomerName() {
 		return customerName;
 	}
