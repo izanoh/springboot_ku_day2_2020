@@ -3,6 +3,7 @@ package com.app.restaurant.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.restaurant.request.SaveOrderRequest;
@@ -21,7 +22,7 @@ public class OrderController {
 	}
 	
 	@PostMapping("/saveOrder")
-	public SaveOrderResponse saveOrder(SaveOrderRequest request) {
+	public SaveOrderResponse saveOrder(@RequestBody SaveOrderRequest request) {
 		// Call orderService.saveOrder()
 		// then return Order Object with orderId
 		return orderService.saveOrder(request);
